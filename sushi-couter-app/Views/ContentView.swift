@@ -53,6 +53,21 @@ struct ContentView: View {
             }
 
             deleteModalOverlay
+
+            // Save success modal
+            if showSaveSuccessAlert {
+                CustomAlertModal(
+                    title: AppConstants.Messages.saveConsumptionSuccessTitle,
+                    message: AppConstants.Messages.saveConsumptionSuccessMessage,
+                    buttonLabel: AppConstants.Messages.okButton,
+                    onDismiss: {
+                        withAnimation(.spring()) {
+                            showSaveSuccessAlert = false
+                        }
+                    }
+                )
+                .zIndex(100)
+            }
         }
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
@@ -71,14 +86,6 @@ struct ContentView: View {
             }
         }
         .navigationBarHidden(true)
-        .alert(
-            AppConstants.Messages.saveConsumptionSuccessTitle,
-            isPresented: $showSaveSuccessAlert
-        ) {
-            Button(AppConstants.Messages.okButton, role: .cancel) {}
-        } message: {
-            Text(AppConstants.Messages.saveConsumptionSuccessMessage)
-        }
         .onAppear {
             SushiDataService.seedInitialData(context: modelContext)
         }
@@ -88,6 +95,7 @@ struct ContentView: View {
 
     private var headerSection: some View {
         HeaderView(
+            canSave: totalConsumido > 0,
             onReset: resetAll,
             onHistory: { activeSheet = .history },
             onSave: saveDailyConsumption,

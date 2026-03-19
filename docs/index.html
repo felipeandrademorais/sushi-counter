@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Counter 🍣 — Conte suas peças de sushi!</title>
+    <meta name="description" content="Sushi Counter é o app perfeito para contar suas peças de sushi, acompanhar calorias e compartilhar nas redes sociais. Disponível para iOS.">
+    <meta name="keywords" content="sushi counter, contagem de sushi, calorias sushi, app ios, sushi tracker">
+    <meta property="og:title" content="Sushi Counter 🍣">
+    <meta property="og:description" content="Conte suas peças de sushi, acompanhe calorias e compartilhe com os amigos!">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating sushi background decorations -->
+    <div class="floating-sushis" aria-hidden="true">
+        <span class="floating-emoji" style="--delay: 0s; --duration: 18s; --x: 5%; --size: 2rem;">🍣</span>
+        <span class="floating-emoji" style="--delay: 2s; --duration: 22s; --x: 15%; --size: 1.5rem;">🍱</span>
+        <span class="floating-emoji" style="--delay: 4s; --duration: 16s; --x: 25%; --size: 1.8rem;">🥢</span>
+        <span class="floating-emoji" style="--delay: 1s; --duration: 20s; --x: 40%; --size: 2.2rem;">🍣</span>
+        <span class="floating-emoji" style="--delay: 6s; --duration: 24s; --x: 55%; --size: 1.4rem;">🍙</span>
+        <span class="floating-emoji" style="--delay: 3s; --duration: 19s; --x: 70%; --size: 1.8rem;">🐟</span>
+        <span class="floating-emoji" style="--delay: 5s; --duration: 21s; --x: 82%; --size: 2rem;">🍣</span>
+        <span class="floating-emoji" style="--delay: 7s; --duration: 17s; --x: 92%; --size: 1.6rem;">🍱</span>
+    </div>
+
+    <!-- Dot Pattern Background -->
+    <div class="dot-pattern"></div>
+
+    <!-- Nav -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <span class="nav-logo">🍣 Sushi Counter</span>
+            <a href="#download" class="nav-cta">
+                <span class="nav-cta-icon">⬇</span>
+                Baixar App
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Grátis para iOS
+                </span>
+                <h1>
+                    Conte cada peça.<br>
+                    Cada caloria.<br>
+                    Cada <span class="highlight">sushi</span>. 🍣
+                </h1>
+                <p class="hero-subtitle">O app mais divertido para acompanhar quanto sushi você devora no rodízio. Controle peças, calorias e compartilhe com os amigos!</p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary">
+                        <svg class="apple-icon" width="18" height="22" viewBox="0 0 20 24" fill="none"><path d="M14.94 0C15.07 1.67 14.42 3.31 13.27 4.51C12.14 5.69 10.53 6.42 9.01 6.31C8.86 4.67 9.63 2.97 10.69 1.87C11.84 0.67 13.56 -0.03 14.94 0ZM19.34 8.26C18.05 9.05 16.36 10.82 16.58 13.73C16.83 17.11 19.06 18.33 19.99 18.73C19.77 19.44 18.67 22.27 16.61 23.03C15.31 23.52 14.44 23.16 13.63 22.82C12.79 22.47 11.9 22.1 10.37 22.12C8.76 22.14 7.84 22.53 6.96 22.9C6.19 23.22 5.46 23.52 4.31 23.34C2.06 22.97 0.42 19.82 0.01 18.93C-1.17 16.24 0.49 11.09 2.59 8.72C3.96 7.17 5.83 6.17 7.47 6.31C8.58 6.41 9.39 6.86 10.09 7.26C10.62 7.56 11.07 7.82 11.66 7.82C12.2 7.82 12.59 7.59 13.08 7.3C13.8 6.88 14.73 6.33 16.15 6.44C17.53 6.53 18.88 7.15 19.34 8.26Z" fill="white"/></svg>
+                        App Store
+                    </a>
+                    <a href="#features" class="btn btn-secondary">Saiba mais ↓</a>
+                </div>
+                <div class="hero-social-proof">
+                    <div class="avatars">
+                        <span class="avatar">🧑‍🍳</span>
+                        <span class="avatar">👨‍🍳</span>
+                        <span class="avatar">👩‍🍳</span>
+                    </div>
+                    <span class="social-proof-text">+1.000 sushi lovers já contando</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <img src="images/sushi-hero.png" alt="Sushi Counter App" class="hero-img">
+                    </div>
+                </div>
+                <!-- Decorative floating cards around phone -->
+                <div class="float-card float-card-1">🍣 42 peças</div>
+                <div class="float-card float-card-2">🔥 1.260 kcal</div>
+                <div class="float-card float-card-3">📸 Shared!</div>
+            </div>
+        </div>
+        <!-- Wavy divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
+                <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V100H0V40Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">🍣</div>
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Tipos de Sushi</span>
+                </div>
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">♾️</div>
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Peças Contadas</span>
+                </div>
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">📊</div>
+                    <span class="stat-number">kcal</span>
+                    <span class="stat-label">Calorias Rastreadas</span>
+                </div>
+                <div class="stat-card" data-animate>
+                    <div class="stat-icon">📸</div>
+                    <span class="stat-number">Share</span>
+                    <span class="stat-label">Cards para Stories</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <span class="section-badge">Funcionalidades</span>
+            <h2 class="section-title">Por que o Sushi Counter? 🤔</h2>
+            <p class="section-subtitle">Porque contar sushi deveria ser tão divertido quanto comer.</p>
+
+            <div class="features-grid">
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon" style="--icon-color: #FF5E5E;">🍣</div>
+                    <h3>Contagem Rápida</h3>
+                    <p>Adicione e remova peças com um toque. Interface intuitiva e rápida como um sushiman experiente.</p>
+                    <span class="feature-tag">Essencial</span>
+                </div>
+
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon" style="--icon-color: #4E9F3D;">🔥</div>
+                    <h3>Controle de Calorias</h3>
+                    <p>Cada tipo de sushi tem suas calorias calculadas automaticamente. Saiba exatamente o que está comendo.</p>
+                    <span class="feature-tag">Saúde</span>
+                </div>
+
+                <div class="feature-card feature-card-accent" data-animate>
+                    <div class="feature-icon" style="--icon-color: #845EC2;">📱</div>
+                    <h3>Share Card</h3>
+                    <p>Gere imagens estilo Strava para postar nos stories. Frases engraçadas e emojis inclusos!</p>
+                    <span class="feature-tag">Popular</span>
+                </div>
+
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon" style="--icon-color: #FFB319;">📋</div>
+                    <h3>Histórico Completo</h3>
+                    <p>Salve seu consumo diário e acompanhe a evolução ao longo do tempo. Dados seus, sempre acessíveis.</p>
+                    <span class="feature-tag">Dados</span>
+                </div>
+
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon" style="--icon-color: #D65DB1;">🎨</div>
+                    <h3>Design Doodle</h3>
+                    <p>Interface divertida e única com estilo de caderno de desenho. Zero chatice, 100% personalidade.</p>
+                    <span class="feature-tag">Design</span>
+                </div>
+
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon" style="--icon-color: #C34A36;">🆕</div>
+                    <h3>Sushi Customizado</h3>
+                    <p>Adicione seus próprios tipos de sushi com ícone, cor e calorias personalizados.</p>
+                    <span class="feature-tag">Novo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="wave-divider wave-top">
+            <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
+                <path d="M0 60C240 20 480 100 720 60C960 20 1200 100 1440 60V0H0V60Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="container">
+            <span class="section-badge section-badge-dark">Como funciona</span>
+            <h2 class="section-title">3 passos para dominar o rodízio 🎯</h2>
+            <p class="section-subtitle">Simples como pedir jokê.</p>
+
+            <div class="steps-grid">
+                <div class="step-card" data-animate>
+                    <div class="step-number">1</div>
+                    <div class="step-emoji">🍱</div>
+                    <h3>Escolha o Sushi</h3>
+                    <p>Selecione entre 8+ tipos de sushi ou crie o seu personalizado com ícone e cor.</p>
+                </div>
+
+                <div class="step-connector" aria-hidden="true">
+                    <span>→</span>
+                </div>
+
+                <div class="step-card" data-animate>
+                    <div class="step-number">2</div>
+                    <div class="step-emoji">➕</div>
+                    <h3>Conte as Peças</h3>
+                    <p>Toque + para cada peça que comer. As calorias são calculadas automaticamente.</p>
+                </div>
+
+                <div class="step-connector" aria-hidden="true">
+                    <span>→</span>
+                </div>
+
+                <div class="step-card" data-animate>
+                    <div class="step-number">3</div>
+                    <div class="step-emoji">🎉</div>
+                    <h3>Compartilhe!</h3>
+                    <p>Gere um card divertido e poste nos stories quanto sushi você devorou.</p>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider wave-bottom">
+            <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
+                <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V100H0V40Z" fill="currentColor"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Share Card Preview -->
+    <section class="share-preview">
+        <div class="container">
+            <span class="section-badge">Compartilhar</span>
+            <h2 class="section-title">Faça seus amigos morrerem de inveja 😈</h2>
+            <p class="section-subtitle">Cards personalizados no estilo Strava. Perfeito para Instagram, WhatsApp e TikTok.</p>
+
+            <div class="share-carousel">
+                <div class="share-card" data-animate>
+                    <div class="share-card-header">
+                        <span>📱 Story do Instagram</span>
+                    </div>
+                    <p class="share-quote">"Comi 42 sushis e não estou nem um pouco arrependido! 🍣🔥"</p>
+                    <div class="share-card-footer">
+                        <span class="share-stat">42 peças</span>
+                        <span class="share-stat">1.260 kcal</span>
+                    </div>
+                </div>
+
+                <div class="share-card share-card-dark" data-animate>
+                    <div class="share-card-header">
+                        <span>🏆 Recorde Pessoal</span>
+                    </div>
+                    <p class="share-quote">"Meu recorde pessoal: 58 peças! Me chamem de tubarão 🦈"</p>
+                    <div class="share-card-footer">
+                        <span class="share-stat">58 peças</span>
+                        <span class="share-stat">1.740 kcal</span>
+                    </div>
+                </div>
+
+                <div class="share-card share-card-accent" data-animate>
+                    <div class="share-card-header">
+                        <span>🥇 Status de Atleta</span>
+                    </div>
+                    <p class="share-quote">"Se sushi fosse esporte, eu seria olímpico 🥇🍱"</p>
+                    <div class="share-card-footer">
+                        <span class="share-stat">35 peças</span>
+                        <span class="share-stat">1.050 kcal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials-style fun section -->
+    <section class="fun-facts">
+        <div class="container">
+            <div class="facts-marquee">
+                <div class="marquee-track">
+                    <span class="marquee-item">🍣 Sushi é vida</span>
+                    <span class="marquee-item">🔥 Calorias não contam no rodízio</span>
+                    <span class="marquee-item">🥢 Chopsticks master</span>
+                    <span class="marquee-item">📸 Post no stories ou não aconteceu</span>
+                    <span class="marquee-item">🍱 Um mais? Sempre um mais</span>
+                    <span class="marquee-item">🐟 Sashimi lover</span>
+                    <span class="marquee-item">🍣 Sushi é vida</span>
+                    <span class="marquee-item">🔥 Calorias não contam no rodízio</span>
+                    <span class="marquee-item">🥢 Chopsticks master</span>
+                    <span class="marquee-item">📸 Post no stories ou não aconteceu</span>
+                    <span class="marquee-item">🍱 Um mais? Sempre um mais</span>
+                    <span class="marquee-item">🐟 Sashimi lover</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Download -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-card">
+                <div class="download-decoration download-deco-1">🍣</div>
+                <div class="download-decoration download-deco-2">🥢</div>
+                <div class="download-decoration download-deco-3">🍱</div>
+                <h2>Pronto para contar? 🍣</h2>
+                <p>Baixe agora o Sushi Counter e nunca mais perca a conta no rodízio.</p>
+                <a href="#" class="btn btn-primary btn-large btn-glow">
+                    <svg class="apple-icon" width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M14.94 0C15.07 1.67 14.42 3.31 13.27 4.51C12.14 5.69 10.53 6.42 9.01 6.31C8.86 4.67 9.63 2.97 10.69 1.87C11.84 0.67 13.56 -0.03 14.94 0ZM19.34 8.26C18.05 9.05 16.36 10.82 16.58 13.73C16.83 17.11 19.06 18.33 19.99 18.73C19.77 19.44 18.67 22.27 16.61 23.03C15.31 23.52 14.44 23.16 13.63 22.82C12.79 22.47 11.9 22.1 10.37 22.12C8.76 22.14 7.84 22.53 6.96 22.9C6.19 23.22 5.46 23.52 4.31 23.34C2.06 22.97 0.42 19.82 0.01 18.93C-1.17 16.24 0.49 11.09 2.59 8.72C3.96 7.17 5.83 6.17 7.47 6.31C8.58 6.41 9.39 6.86 10.09 7.26C10.62 7.56 11.07 7.82 11.66 7.82C12.2 7.82 12.59 7.59 13.08 7.3C13.8 6.88 14.73 6.33 16.15 6.44C17.53 6.53 18.88 7.15 19.34 8.26Z" fill="white"/></svg>
+                    Baixar na App Store
+                </a>
+                <div class="download-tags">
+                    <span class="download-tag">Grátis</span>
+                    <span class="download-tag">iOS 26+</span>
+                    <span class="download-tag">Sem anúncios</span>
+                    <span class="download-tag">Offline</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">🍣 Sushi Counter</span>
+                    <p class="footer-text">Feito com ❤️ e muito sushi.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacidade</a>
+                    <a href="#">Termos</a>
+                    <a href="https://github.com/felipeandrademorais/sushi-counter">GitHub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 Sushi Counter. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            navbar.classList.toggle('scrolled', currentScroll > 50);
+            lastScroll = currentScroll;
+        });
+
+        // Animate elements on scroll with stagger
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 80);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+        // Parallax effect on hero image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroImg = document.querySelector('.hero-image');
+            if (heroImg && scrolled < 800) {
+                heroImg.style.transform = `translateY(${scrolled * 0.08}px)`;
+            }
+        });
+
+        // Interactive tilt on feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
+</body>
+</html>

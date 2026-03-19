@@ -29,6 +29,11 @@
 "messages.deleteModalTitleFormat" = "Delete %@?";
 "messages.okButton" = "OK";
 
+// History delete
+"messages.historyDeleteTitle" = "Delete Record?";
+"messages.historyDeleteMessage" = "This record will be permanently deleted.";
+"messages.historyDeleteConfirm" = "Delete";
+
 // Menu labels
 "messages.menuHistoryLabel" = "History";
 "messages.menuSaveLabel" = "Save Record";

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    let canSave: Bool
     let onReset: () -> Void
     let onHistory: () -> Void
     let onSave: () -> Void
@@ -25,6 +26,7 @@ struct HeaderView: View {
             HStack(spacing: 12) {
                 // Menu contextual (ações secundárias)
                 MenuButton(
+                    canSave: canSave,
                     onHistory: onHistory,
                     onSave: onSave,
                     onShare: onShare
@@ -57,6 +59,7 @@ struct HeaderView: View {
 // MARK: - Menu Button
 
 private struct MenuButton: View {
+    let canSave: Bool
     let onHistory: () -> Void
     let onSave: () -> Void
     let onShare: () -> Void
@@ -76,6 +79,7 @@ private struct MenuButton: View {
                     systemImage: AppConstants.Icons.save
                 )
             }
+            .disabled(!canSave)
 
             Divider()
 
@@ -144,6 +148,6 @@ private struct HeaderButton: View {
 }
 
 #Preview {
-    HeaderView(onReset: {}, onHistory: {}, onSave: {}, onShare: {}, onAdd: {})
+    HeaderView(canSave: true, onReset: {}, onHistory: {}, onSave: {}, onShare: {}, onAdd: {})
         .background(Color(hex: AppConstants.Colors.background))
 }

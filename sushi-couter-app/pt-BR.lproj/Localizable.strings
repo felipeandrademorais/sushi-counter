@@ -29,6 +29,11 @@
 "messages.deleteModalTitleFormat" = "Excluir %@?";
 "messages.okButton" = "OK";
 
+// History delete
+"messages.historyDeleteTitle" = "Excluir Registro?";
+"messages.historyDeleteMessage" = "Esse registro será excluído permanentemente.";
+"messages.historyDeleteConfirm" = "Excluir";
+
 // Menu labels
 "messages.menuHistoryLabel" = "Histórico";
 "messages.menuSaveLabel" = "Salvar Registro";

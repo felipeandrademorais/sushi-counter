@@ -100,6 +100,11 @@ struct AppConstants {
         static let deleteModalTitleFormat = L10n.text("messages.deleteModalTitleFormat")
         static let okButton = L10n.text("messages.okButton")
 
+        // History delete
+        static let historyDeleteTitle = L10n.text("messages.historyDeleteTitle")
+        static let historyDeleteMessage = L10n.text("messages.historyDeleteMessage")
+        static let historyDeleteConfirm = L10n.text("messages.historyDeleteConfirm")
+
         // Menu labels
         static let menuHistoryLabel = L10n.text("messages.menuHistoryLabel")
         static let menuSaveLabel = L10n.text("messages.menuSaveLabel")

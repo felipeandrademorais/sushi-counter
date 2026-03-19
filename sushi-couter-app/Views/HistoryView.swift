@@ -3,7 +3,10 @@ import SwiftData
 
 struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     @Query(sort: \DailyConsumptionLog.createdAt, order: .reverse) private var logs: [DailyConsumptionLog]
+
+    @State private var logToDelete: DailyConsumptionLog?
 
     var body: some View {
         ZStack {
@@ -21,6 +24,30 @@ struct HistoryView: View {
             }
             .padding(.horizontal, 20)
             .padding(.top, 20)
+
+            // Custom delete confirmation modal
+            if logToDelete != nil {
+                CustomConfirmModal(
+                    title: AppConstants.Messages.historyDeleteTitle,
+                    message: AppConstants.Messages.historyDeleteMessage,
+                    cancelLabel: AppConstants.Messages.deleteModalCancel,
+                    confirmLabel: AppConstants.Messages.historyDeleteConfirm,
+                    onCancel: {
+                        withAnimation(.spring()) {
+                            logToDelete = nil
+                        }
+                    },
+                    onConfirm: {
+                        if let log = logToDelete {
+                            withAnimation(.spring()) {
+                                SushiDataService.deleteLog(log, context: modelContext)
+                                logToDelete = nil
+                            }
+                        }
+                    }
+                )
+                .zIndex(100)
+            }
         }
     }
 
@@ -70,11 +97,15 @@ struct HistoryView: View {
 
     private var logsList: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 12) {
+            VStack(spacing: 16) {
                 ForEach(logs) { log in
-                    HistoryRow(log: log)
+                    HistoryRow(log: log, onDelete: {
+                        logToDelete = log
+                    })
+                    .padding(.horizontal, 8)
                 }
             }
+            .padding(.top, 8)
             .padding(.bottom, 24)
         }
     }
@@ -82,6 +113,7 @@ struct HistoryView: View {
 
 private struct HistoryRow: View {
     let log: DailyConsumptionLog
+    let onDelete: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -115,6 +147,16 @@ private struct HistoryRow: View {
                 )
                 .shadow(color: .black, radius: 0, x: AppConstants.Design.shadowOffset, y: AppConstants.Design.shadowOffset)
         )
+        .overlay(alignment: .topLeading) {
+            Button(action: onDelete) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 20))
+                    .foregroundColor(.red)
+                    .background(Circle().fill(Color.white))
+                    .shadow(radius: 2)
+            }
+            .offset(x: -6, y: -6)
+        }
     }
 }
 

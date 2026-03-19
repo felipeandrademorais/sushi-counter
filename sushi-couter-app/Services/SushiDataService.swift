@@ -23,6 +23,11 @@ enum SushiDataService {
         try? context.save()
     }
 
+    static func deleteLog(_ log: DailyConsumptionLog, context: ModelContext) {
+        context.delete(log)
+        try? context.save()
+    }
+
     static func addItem(
         nome: String,
         icon: String,
