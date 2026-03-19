@@ -21,6 +21,12 @@ struct ContentView: View {
     private var totalConsumido: Int {
         items.reduce(0) { $0 + $1.quantidade }
     }
+    
+    private var totalCalorias: Int {
+        items.reduce(0) { partialResult, item in
+            partialResult + (item.quantidade * item.calorias)
+        }
+    }
 
     // MARK: - Body
 
@@ -29,9 +35,9 @@ struct ContentView: View {
             Color(hex: AppConstants.Colors.background).ignoresSafeArea()
             DotPatternBackground()
 
-            VStack(spacing: 0) {
+            VStack(spacing: 10) {
                 headerSection
-                TotalHeroCard(total: totalConsumido)
+                TotalHeroCard(totalPecas: totalConsumido, totalCalorias: totalCalorias)
                 menuList
             }
 
@@ -39,7 +45,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showingAddSheet) {
             AddSushiView()
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.height(570), .large])
                 .presentationBackground(Color(hex: AppConstants.Colors.background))
         }
         .navigationBarHidden(true)
@@ -59,15 +65,7 @@ struct ContentView: View {
 
     private var menuList: some View {
         ScrollView(showsIndicators: false) {
-            VStack(spacing: 16) {
-                HStack {
-                    Text(AppConstants.Messages.menuLabel)
-                        .font(.system(.headline, design: .rounded))
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                .padding(.horizontal, 24)
-
+            VStack(spacing: 12) {
                 ForEach(items) { item in
                     SushiRowView(
                         item: item,
@@ -80,14 +78,8 @@ struct ContentView: View {
                         }
                     )
                 }
-
-                Text(AppConstants.Messages.footerLabel)
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.secondary.opacity(0.4))
-                    .padding(.top, 40)
-                    .padding(.bottom, 40)
             }
+            .padding(.top, 8)
         }
     }
 

@@ -8,6 +8,7 @@ struct AddSushiView: View {
     @State private var nome: String = ""
     @State private var selectedIcon: String = "nigiri"
     @State private var selectedColor: String = AppConstants.Colors.harumaki
+    @State private var caloriasPorPeca: Int = 0
 
     private let icons = AppConstants.Icons.all
     private let colors = AppConstants.Colors.allItemColors
@@ -39,6 +40,7 @@ struct AddSushiView: View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 24) {
                 nameField
+                caloriesField
                 iconPicker
                 colorPicker
             }
@@ -65,6 +67,30 @@ struct AddSushiView: View {
                                 .stroke(Color.black, lineWidth: AppConstants.Design.lineWidth)
                         )
                 )
+        }
+    }
+
+    private var caloriesField: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            SectionLabel(AppConstants.Messages.caloriesPerPieceLabel)
+
+            TextField(
+                AppConstants.Messages.caloriesPerPiecePlaceholder,
+                value: $caloriasPorPeca,
+                format: .number
+            )
+            .keyboardType(.numberPad)
+            .font(.system(.body, design: .rounded))
+            .fontWeight(.bold)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: AppConstants.Design.cornerRadius)
+                    .fill(Color.white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: AppConstants.Design.cornerRadius)
+                            .stroke(Color.black, lineWidth: AppConstants.Design.lineWidth)
+                    )
+            )
         }
     }
 
@@ -124,6 +150,7 @@ struct AddSushiView: View {
                 nome: nome,
                 icon: selectedIcon,
                 color: selectedColor,
+                calorias: caloriasPorPeca,
                 context: modelContext
             )
             dismiss()

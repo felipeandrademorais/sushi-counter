@@ -8,14 +8,17 @@ final class SushiItem: Identifiable {
     var quantidade: Int
     var icon: String
     var color: String
+    /// Calorias por unidade/peça.
+    var calorias: Int
     var createdAt: Date = Date()
     
-    init(nome: String, quantidade: Int = 0, icon: String, color: String) {
+    init(nome: String, quantidade: Int = 0, icon: String, color: String, calorias: Int = 0) {
         self.id = UUID()
         self.nome = nome
         self.quantidade = quantidade
         self.icon = icon
         self.color = color
+        self.calorias = calorias
         self.createdAt = Date()
     }
 }

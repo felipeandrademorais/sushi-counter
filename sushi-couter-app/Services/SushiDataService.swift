@@ -23,8 +23,14 @@ enum SushiDataService {
         try? context.save()
     }
 
-    static func addItem(nome: String, icon: String, color: String, context: ModelContext) {
-        let newItem = SushiItem(nome: nome, icon: icon, color: color)
+    static func addItem(
+        nome: String,
+        icon: String,
+        color: String,
+        calorias: Int,
+        context: ModelContext
+    ) {
+        let newItem = SushiItem(nome: nome, icon: icon, color: color, calorias: calorias)
         context.insert(newItem)
         try? context.save()
     }
@@ -38,14 +44,14 @@ enum SushiDataService {
         try? context.delete(model: SushiItem.self)
 
         let initialItems = [
-            SushiItem(nome: "Harumaki",  icon: "harumaki",  color: AppConstants.Colors.harumaki),
-            SushiItem(nome: "Hossomaki", icon: "hossomaki", color: AppConstants.Colors.hossomaki),
-            SushiItem(nome: "Hot",       icon: "hot",       color: AppConstants.Colors.hot),
-            SushiItem(nome: "Joe",       icon: "joe",       color: AppConstants.Colors.joe),
-            SushiItem(nome: "Nigiri",    icon: "nigiri",    color: AppConstants.Colors.nigiri),
-            SushiItem(nome: "Sashimi",   icon: "sashimi",   color: AppConstants.Colors.sashimi),
-            SushiItem(nome: "Tiradito",  icon: "tiradito",  color: AppConstants.Colors.tiradito),
-            SushiItem(nome: "Uramaki",   icon: "uramaki",   color: AppConstants.Colors.uramaki)
+            SushiItem(nome: "Harumaki",  icon: "harumaki",  color: AppConstants.Colors.harumaki,  calorias: 160),
+            SushiItem(nome: "Hossomaki", icon: "hossomaki", color: AppConstants.Colors.hossomaki, calorias: 50),
+            SushiItem(nome: "Hot",       icon: "hot",       color: AppConstants.Colors.hot,       calorias: 140),
+            SushiItem(nome: "Joe",       icon: "joe",       color: AppConstants.Colors.joe,       calorias: 120),
+            SushiItem(nome: "Nigiri",    icon: "nigiri",    color: AppConstants.Colors.nigiri,    calorias: 90),
+            SushiItem(nome: "Sashimi",   icon: "sashimi",   color: AppConstants.Colors.sashimi,   calorias: 60),
+            SushiItem(nome: "Tiradito",  icon: "tiradito",  color: AppConstants.Colors.tiradito,  calorias: 100),
+            SushiItem(nome: "Uramaki",   icon: "uramaki",   color: AppConstants.Colors.uramaki,   calorias: 150)
         ]
 
         for item in initialItems {

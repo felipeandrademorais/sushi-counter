@@ -65,6 +65,8 @@ struct AppConstants {
         static let newSushiTitle = "Novo Sushi"
         static let sushiNamePlaceholder = "Ex: Nigiri de Salmão"
         static let sushiNameLabel = "NOME DO SUSHI"
+        static let caloriesPerPieceLabel = "CALORIAS POR PEÇA"
+        static let caloriesPerPiecePlaceholder = "Ex: 120"
         static let chooseIconLabel = "ESCOLHER ÍCONE"
         static let chooseColorLabel = "COR DE DESTAQUE"
         static let addSushiButtonLabel = "Adicionar Sushi"

@@ -16,17 +16,17 @@ struct SushiRowView: View {
             // Icone com Glassmorphism Background
             ZStack {
                 Circle()
-                    .fill(Color(hex: item.color).opacity(0.15))
+                    .fill(Color(hex: item.color).opacity(0))
                     .frame(width: 64, height: 64)
                     .overlay(
                         Circle()
-                            .stroke(Color(hex: item.color).opacity(0.8), lineWidth: 2)
+                            .stroke(Color(hex: item.color).opacity(0), lineWidth: 2)
                     )
                 
                 Image(item.icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 46, height: 46)
+                    .frame(width: 60, height: 60)
                     .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
             }
             
@@ -36,9 +36,11 @@ struct SushiRowView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                 
-                Text("Peças consumidas")
-                    .font(.caption)
+                Text("\(item.calorias) kcal")
+                    .font(.system(.caption, design: .rounded))
+                    .fontWeight(.black)
                     .foregroundColor(.secondary)
+                    .tracking(AppConstants.Design.trackingStandard)
             }
             
             Spacer()
@@ -117,7 +119,7 @@ struct SushiRowView: View {
     ZStack {
         Color.gray.opacity(0.1).ignoresSafeArea()
         SushiRowView(
-            item: SushiItem(nome: "Sashimi", quantidade: 2, icon: "sashimi", color: "FF5E5E"),
+            item: SushiItem(nome: "Sashimi", quantidade: 2, icon: "sashimi", color: "FF5E5E", calorias: 60),
             onIncrement: {},
             onDecrement: {},
             onDeleteRequest: { _ in }
