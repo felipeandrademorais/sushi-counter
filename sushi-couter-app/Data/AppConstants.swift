@@ -29,6 +29,8 @@ struct AppConstants {
         static let add = "plus"
         static let save = "tray.and.arrow.down.fill"
         static let history = "clock.arrow.circlepath"
+        static let menu = "ellipsis"
+        static let share = "square.and.arrow.up"
     }
     
     struct Design {
@@ -64,6 +66,16 @@ struct AppConstants {
             L10n.text("messages.funnyDeletion.6"),
             L10n.text("messages.funnyDeletion.7")
         ]
+
+        static let funnyShareMessages: [String] = [
+            L10n.text("messages.funnyShare.1"),
+            L10n.text("messages.funnyShare.2"),
+            L10n.text("messages.funnyShare.3"),
+            L10n.text("messages.funnyShare.4"),
+            L10n.text("messages.funnyShare.5"),
+            L10n.text("messages.funnyShare.6"),
+            L10n.text("messages.funnyShare.7")
+        ]
         
         static let appTitle = L10n.text("messages.appTitle")
         static let totalConsumedLabel = L10n.text("messages.totalConsumedLabel")
@@ -87,5 +99,19 @@ struct AppConstants {
         static let deleteModalConfirm = L10n.text("messages.deleteModalConfirm")
         static let deleteModalTitleFormat = L10n.text("messages.deleteModalTitleFormat")
         static let okButton = L10n.text("messages.okButton")
+
+        // Menu labels
+        static let menuHistoryLabel = L10n.text("messages.menuHistoryLabel")
+        static let menuSaveLabel = L10n.text("messages.menuSaveLabel")
+        static let menuShareLabel = L10n.text("messages.menuShareLabel")
+
+        // Share sheet labels
+        static let shareSheetTitle = L10n.text("messages.shareSheetTitle")
+        static let shareTransparentToggle = L10n.text("messages.shareTransparentToggle")
+        static let shareButtonLabel = L10n.text("messages.shareButtonLabel")
+        static let shareBranding = L10n.text("messages.shareBranding")
+        static let shareSaveToPhotosLabel = L10n.text("messages.shareSaveToPhotosLabel")
+        static let shareSavedSuccess = L10n.text("messages.shareSavedSuccess")
+        static let shareSavedError = L10n.text("messages.shareSavedError")
     }
 }

@@ -28,3 +28,26 @@
 "messages.deleteModalConfirm" = "Bye, Sushi!";
 "messages.deleteModalTitleFormat" = "Delete %@?";
 "messages.okButton" = "OK";
+
+// Menu labels
+"messages.menuHistoryLabel" = "History";
+"messages.menuSaveLabel" = "Save Record";
+"messages.menuShareLabel" = "Share";
+
+// Share sheet
+"messages.shareSheetTitle" = "Share Your Result";
+"messages.shareTransparentToggle" = "Transparent Background";
+"messages.shareButtonLabel" = "Share";
+"messages.shareBranding" = "Sushi Counter 🍣";
+"messages.shareSaveToPhotosLabel" = "Save to Photos";
+"messages.shareSavedSuccess" = "Image saved to Photos! 📸";
+"messages.shareSavedError" = "Please allow Photos access in Settings to save.";
+
+// Funny share messages
+"messages.funnyShare.1" = "I ate %d sushis and I regret nothing! 🍣🔥";
+"messages.funnyShare.2" = "If sushi was a sport, I'd be an Olympic athlete! 🏆🍣";
+"messages.funnyShare.3" = "Goal crushed: %d sushis in one day! The chef loves me! 👨‍🍳❤️";
+"messages.funnyShare.4" = "Someone stop me! Already at %d sushis! 🚨🍣";
+"messages.funnyShare.5" = "My diet? Sushi. My passion? Sushi. My life? %d sushis! 🐟💕";
+"messages.funnyShare.6" = "All-you-can-eat places fear me: %d pieces! 😤🍣";
+"messages.funnyShare.7" = "The ocean is running out because of me: %d sushis! 🌊🐟";

@@ -1,12 +1,21 @@
 import SwiftUI
 import SwiftData
 
+// MARK: - Active Sheet Enum
+
+enum ActiveSheet: Identifiable {
+    case addSushi
+    case history
+    case share
+
+    var id: Int { hashValue }
+}
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \SushiItem.createdAt, order: .reverse) private var items: [SushiItem]
 
-    @State private var showingAddSheet = false
-    @State private var showingHistorySheet = false
+    @State private var activeSheet: ActiveSheet?
     @State private var itemToDelete: SushiItem?
     @State private var showSaveSuccessAlert = false
     @AppStorage("totalDeletionsCount") private var totalDeletionsCount = 0
@@ -45,15 +54,21 @@ struct ContentView: View {
 
             deleteModalOverlay
         }
-        .sheet(isPresented: $showingAddSheet) {
-            AddSushiView()
-                .presentationDetents([.height(570), .large])
-                .presentationBackground(Color(hex: AppConstants.Colors.background))
-        }
-        .sheet(isPresented: $showingHistorySheet) {
-            HistoryView()
-                .presentationDetents([.medium, .large])
-                .presentationBackground(Color(hex: AppConstants.Colors.background))
+        .sheet(item: $activeSheet) { sheet in
+            switch sheet {
+            case .addSushi:
+                AddSushiView()
+                    .presentationDetents([.height(570), .large])
+                    .presentationBackground(Color(hex: AppConstants.Colors.background))
+            case .history:
+                HistoryView()
+                    .presentationDetents([.height(570), .large])
+                    .presentationBackground(Color(hex: AppConstants.Colors.background))
+            case .share:
+                ShareSheetView(totalPecas: totalConsumido, totalCalorias: totalCalorias)
+                    .presentationDetents([.large])
+                    .presentationBackground(Color(hex: AppConstants.Colors.background))
+            }
         }
         .navigationBarHidden(true)
         .alert(
@@ -74,9 +89,10 @@ struct ContentView: View {
     private var headerSection: some View {
         HeaderView(
             onReset: resetAll,
-            onHistory: { showingHistorySheet = true },
+            onHistory: { activeSheet = .history },
             onSave: saveDailyConsumption,
-            onAdd: { showingAddSheet = true }
+            onShare: { activeSheet = .share },
+            onAdd: { activeSheet = .addSushi }
         )
     }
 

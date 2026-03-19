@@ -4,6 +4,7 @@ struct HeaderView: View {
     let onReset: () -> Void
     let onHistory: () -> Void
     let onSave: () -> Void
+    let onShare: () -> Void
     let onAdd: () -> Void
 
     var body: some View {
@@ -22,6 +23,14 @@ struct HeaderView: View {
             Spacer()
 
             HStack(spacing: 12) {
+                // Menu contextual (ações secundárias)
+                MenuButton(
+                    onHistory: onHistory,
+                    onSave: onSave,
+                    onShare: onShare
+                )
+
+                // Reset (ação primária)
                 HeaderButton(
                     icon: AppConstants.Icons.refresh,
                     foreground: .black,
@@ -30,22 +39,7 @@ struct HeaderView: View {
                     action: onReset
                 )
 
-                HeaderButton(
-                    icon: AppConstants.Icons.history,
-                    foreground: .black,
-                    background: .white,
-                    showStroke: true,
-                    action: onHistory
-                )
-                
-                HeaderButton(
-                    icon: AppConstants.Icons.save,
-                    foreground: .black,
-                    background: .white,
-                    showStroke: true,
-                    action: onSave
-                )
-
+                // Add (ação primária - CTA)
                 HeaderButton(
                     icon: AppConstants.Icons.add,
                     foreground: .white,
@@ -57,6 +51,60 @@ struct HeaderView: View {
         }
         .padding(.horizontal, 24)
         .padding(.top, 20)
+    }
+}
+
+// MARK: - Menu Button
+
+private struct MenuButton: View {
+    let onHistory: () -> Void
+    let onSave: () -> Void
+    let onShare: () -> Void
+
+    var body: some View {
+        Menu {
+            Button(action: onHistory) {
+                Label(
+                    AppConstants.Messages.menuHistoryLabel,
+                    systemImage: AppConstants.Icons.history
+                )
+            }
+
+            Button(action: onSave) {
+                Label(
+                    AppConstants.Messages.menuSaveLabel,
+                    systemImage: AppConstants.Icons.save
+                )
+            }
+
+            Divider()
+
+            Button(action: onShare) {
+                Label(
+                    AppConstants.Messages.menuShareLabel,
+                    systemImage: AppConstants.Icons.share
+                )
+            }
+        } label: {
+            Image(systemName: AppConstants.Icons.menu)
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+                .padding(10)
+                .background(
+                    Circle()
+                        .fill(.white)
+                        .overlay(
+                            Circle().stroke(Color.black, lineWidth: AppConstants.Design.headerLineWidth)
+                        )
+                        .shadow(
+                            color: .black.opacity(0.1),
+                            radius: 0,
+                            x: AppConstants.Design.headerShadowOffset,
+                            y: AppConstants.Design.headerShadowOffset
+                        )
+                )
+        }
     }
 }
 
@@ -96,6 +144,6 @@ private struct HeaderButton: View {
 }
 
 #Preview {
-    HeaderView(onReset: {}, onHistory: {}, onSave: {}, onAdd: {})
+    HeaderView(onReset: {}, onHistory: {}, onSave: {}, onShare: {}, onAdd: {})
         .background(Color(hex: AppConstants.Colors.background))
 }
