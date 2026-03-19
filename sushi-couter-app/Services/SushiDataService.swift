@@ -41,7 +41,13 @@ enum SushiDataService {
         let hasPerformedSeed = UserDefaults.standard.bool(forKey: seedKey)
         guard !hasPerformedSeed else { return }
 
-        try? context.delete(model: SushiItem.self)
+        // Verifica se já existem itens para evitar duplicidade ou conflitos
+        let descriptor = FetchDescriptor<SushiItem>()
+        if let count = try? context.fetchCount(descriptor), count > 0 {
+            // Se já tem dados, apenas marcamos como "seed realizado" e saímos
+            UserDefaults.standard.set(true, forKey: seedKey)
+            return
+        }
 
         let initialItems = [
             SushiItem(nome: "Harumaki",  icon: "harumaki",  color: AppConstants.Colors.harumaki,  calorias: 160),
@@ -62,12 +68,19 @@ enum SushiDataService {
             try context.save()
             UserDefaults.standard.set(true, forKey: seedKey)
         } catch {
-            print("Erro ao salvar seed: \(error)")
+            // Falha silenciosa ou log estruturado se necessário, mas não atualiza o UserDefaults
         }
     }
 
     static func resetAll(context: ModelContext) {
-        try? context.delete(model: SushiItem.self)
+        // Deleção robusta item a item para evitar crashes de schema/relacionamentos em migrações
+        let descriptor = FetchDescriptor<SushiItem>()
+        if let allItems = try? context.fetch(descriptor) {
+            for item in allItems {
+                context.delete(item)
+            }
+        }
+        
         try? context.save()
         UserDefaults.standard.set(false, forKey: seedKey)
         seedInitialData(context: context)
