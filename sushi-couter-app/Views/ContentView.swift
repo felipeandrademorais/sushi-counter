@@ -86,6 +86,7 @@ struct ContentView: View {
                 ForEach(items) { item in
                     SushiRowView(
                         item: item,
+                        canIncrement: canIncrement(item),
                         onIncrement: { incrementar(item) },
                         onDecrement: { decrementar(item) },
                         onDeleteRequest: { item in
@@ -126,7 +127,13 @@ struct ContentView: View {
 
     // MARK: - Actions
 
+    private func canIncrement(_ item: SushiItem) -> Bool {
+        item.quantidade < AppConstants.Limits.maxPerItem &&
+        totalConsumido < AppConstants.Limits.maxTotalConsumed
+    }
+
     private func incrementar(_ item: SushiItem) {
+        guard canIncrement(item) else { return }
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
             SushiDataService.incrementar(item, context: modelContext)
             haptic.impactOccurred()

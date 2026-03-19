@@ -1,15 +1,11 @@
 import SwiftUI
-import SwiftData
 
 struct SushiRowView: View {
-    @Environment(\.modelContext) private var modelContext
     let item: SushiItem
+    let canIncrement: Bool
     let onIncrement: () -> Void
     let onDecrement: () -> Void
     let onDeleteRequest: (SushiItem) -> Void
-    
-    // Contador de exclusões persistente
-    @AppStorage("totalDeletionsCount") private var totalDeletionsCount = 0
     
     var body: some View {
         HStack(spacing: 16) {
@@ -77,7 +73,7 @@ struct SushiRowView: View {
                         .padding(10)
                         .background(
                             Circle()
-                                .fill(Color(hex: item.color))
+                                .fill(canIncrement ? Color(hex: item.color) : Color.gray.opacity(0.3))
                                 .overlay(
                                     Circle()
                                         .stroke(Color.black, lineWidth: 1.5)
@@ -85,6 +81,8 @@ struct SushiRowView: View {
                                 .shadow(color: Color.black.opacity(0.1), radius: 0, x: 2, y: 2)
                         )
                 }
+                .disabled(!canIncrement)
+                .scaleEffect(canIncrement ? 1.0 : 0.9)
             }
             .buttonStyle(.plain)
         }
@@ -120,6 +118,7 @@ struct SushiRowView: View {
         Color.gray.opacity(0.1).ignoresSafeArea()
         SushiRowView(
             item: SushiItem(nome: "Sashimi", quantidade: 2, icon: "sashimi", color: "FF5E5E", calorias: 60),
+            canIncrement: true,
             onIncrement: {},
             onDecrement: {},
             onDeleteRequest: { _ in }

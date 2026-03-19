@@ -49,6 +49,11 @@ struct AppConstants {
         static let trackingStandard: CGFloat = 1
     }
     
+    struct Limits {
+        static let maxPerItem = 99
+        static let maxTotalConsumed = 999
+    }
+    
     struct Messages {
         static let funnyDeletions: [String] = [
             L10n.text("messages.funnyDeletion.1"),
