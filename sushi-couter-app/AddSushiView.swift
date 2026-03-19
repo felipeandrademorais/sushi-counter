@@ -141,7 +141,7 @@ struct AddSushiView: View {
                 }
                 
                 // Botões de Ação
-                VStack(spacing: 12) {
+                VStack(spacing: 0) {
                     Button(action: {
                         let newItem = SushiItem(nome: nome, icon: selectedIcon, color: selectedColor)
                         modelContext.insert(newItem)
@@ -167,7 +167,7 @@ struct AddSushiView: View {
                     .disabled(nome.isEmpty)
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, 32)
+                .padding(.vertical, 0)
             }
         }
     }
