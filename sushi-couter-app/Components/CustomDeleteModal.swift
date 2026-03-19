@@ -16,7 +16,7 @@ struct CustomDeleteModal: View {
             
             VStack(spacing: 24) {
                 VStack(spacing: 12) {
-                    Text("Excluir \(item.nome)?")
+                    Text(String(format: AppConstants.Messages.deleteModalTitleFormat, item.nome))
                         .font(.system(.title2, design: .rounded))
                         .fontWeight(.black)
                         .multilineTextAlignment(.center)
@@ -31,7 +31,7 @@ struct CustomDeleteModal: View {
                 
                 HStack(spacing: 16) {
                     Button(action: onCancel) {
-                        Text("Cancelar")
+                        Text(AppConstants.Messages.deleteModalCancel)
                             .font(.system(.headline, design: .rounded))
                             .fontWeight(.bold)
                             .foregroundColor(.black)
@@ -48,7 +48,7 @@ struct CustomDeleteModal: View {
                     }
                     
                     Button(action: onDelete) {
-                        Text("Tchau, Sushi!")
+                        Text(AppConstants.Messages.deleteModalConfirm)
                             .font(.system(.headline, design: .rounded))
                             .fontWeight(.bold)
                             .foregroundColor(.white)

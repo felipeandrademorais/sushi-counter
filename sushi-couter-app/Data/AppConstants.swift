@@ -51,32 +51,36 @@ struct AppConstants {
     
     struct Messages {
         static let funnyDeletions: [String] = [
-            "Dando tchau para esse delicioso sushi...",
-            "Um sushi a menos no mundo... que tragédia! 😭",
-            "Você realmente vai fazer isso? O sushiman vai ficar triste! 👨‍🍳💔",
-            "E lá se vai mais um... a dieta agradece, o estômago reclama! 🥗",
-            "Serial Sushi Killer! Quantos mais você vai eliminar? 🔪🍣",
-            "O peixe nadou tanto pra terminar assim? Excluído! 🐟🚫",
-            "CHEGA! Você já excluiu sushis demais! O próximo vai virar sashimi de você! 🦈😤"
+            L10n.text("messages.funnyDeletion.1"),
+            L10n.text("messages.funnyDeletion.2"),
+            L10n.text("messages.funnyDeletion.3"),
+            L10n.text("messages.funnyDeletion.4"),
+            L10n.text("messages.funnyDeletion.5"),
+            L10n.text("messages.funnyDeletion.6"),
+            L10n.text("messages.funnyDeletion.7")
         ]
         
-        static let appTitle = "Sushi Counter"
-        static let totalConsumedLabel = "TOTAL CONSUMIDO"
-        static let menuLabel = "Menu"
-        static let footerLabel = "🍣 Doodle Style by Senior Coder"
-        static let newSushiTitle = "Novo Sushi"
-        static let sushiNamePlaceholder = "Ex: Nigiri de Salmão"
-        static let sushiNameLabel = "NOME DO SUSHI"
-        static let caloriesPerPieceLabel = "CALORIAS POR PEÇA"
-        static let caloriesPerPiecePlaceholder = "Ex: 120"
-        static let chooseIconLabel = "ESCOLHER ÍCONE"
-        static let chooseColorLabel = "COR DE DESTAQUE"
-        static let addSushiButtonLabel = "Adicionar Sushi"
-        static let saveConsumptionSuccessTitle = "Consumo salvo"
-        static let saveConsumptionSuccessMessage = "Registro do momento salvo com data, hora, quantidade e calorias."
-        static let historyTitle = "Histórico de Registros"
-        static let historyEmptyState = "Nenhum registro salvo ainda."
-        static let historySushiLabel = "Sushis"
-        static let historyCaloriesLabel = "Calorias"
+        static let appTitle = L10n.text("messages.appTitle")
+        static let totalConsumedLabel = L10n.text("messages.totalConsumedLabel")
+        static let menuLabel = L10n.text("messages.menuLabel")
+        static let footerLabel = L10n.text("messages.footerLabel")
+        static let newSushiTitle = L10n.text("messages.newSushiTitle")
+        static let sushiNamePlaceholder = L10n.text("messages.sushiNamePlaceholder")
+        static let sushiNameLabel = L10n.text("messages.sushiNameLabel")
+        static let caloriesPerPieceLabel = L10n.text("messages.caloriesPerPieceLabel")
+        static let caloriesPerPiecePlaceholder = L10n.text("messages.caloriesPerPiecePlaceholder")
+        static let chooseIconLabel = L10n.text("messages.chooseIconLabel")
+        static let chooseColorLabel = L10n.text("messages.chooseColorLabel")
+        static let addSushiButtonLabel = L10n.text("messages.addSushiButtonLabel")
+        static let saveConsumptionSuccessTitle = L10n.text("messages.saveConsumptionSuccessTitle")
+        static let saveConsumptionSuccessMessage = L10n.text("messages.saveConsumptionSuccessMessage")
+        static let historyTitle = L10n.text("messages.historyTitle")
+        static let historyEmptyState = L10n.text("messages.historyEmptyState")
+        static let historySushiLabel = L10n.text("messages.historySushiLabel")
+        static let historyCaloriesLabel = L10n.text("messages.historyCaloriesLabel")
+        static let deleteModalCancel = L10n.text("messages.deleteModalCancel")
+        static let deleteModalConfirm = L10n.text("messages.deleteModalConfirm")
+        static let deleteModalTitleFormat = L10n.text("messages.deleteModalTitleFormat")
+        static let okButton = L10n.text("messages.okButton")
     }
 }

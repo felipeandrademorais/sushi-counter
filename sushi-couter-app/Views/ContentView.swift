@@ -60,7 +60,7 @@ struct ContentView: View {
             AppConstants.Messages.saveConsumptionSuccessTitle,
             isPresented: $showSaveSuccessAlert
         ) {
-            Button("OK", role: .cancel) {}
+            Button(AppConstants.Messages.okButton, role: .cancel) {}
         } message: {
             Text(AppConstants.Messages.saveConsumptionSuccessMessage)
         }
