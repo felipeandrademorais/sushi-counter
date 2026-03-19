@@ -27,6 +27,8 @@ struct AppConstants {
         static let all = ["harumaki", "hossomaki", "hot", "joe", "nigiri", "sashimi", "tiradito", "uramaki"]
         static let refresh = "arrow.counterclockwise"
         static let add = "plus"
+        static let save = "tray.and.arrow.down.fill"
+        static let history = "clock.arrow.circlepath"
     }
     
     struct Design {
@@ -70,5 +72,11 @@ struct AppConstants {
         static let chooseIconLabel = "ESCOLHER ÍCONE"
         static let chooseColorLabel = "COR DE DESTAQUE"
         static let addSushiButtonLabel = "Adicionar Sushi"
+        static let saveConsumptionSuccessTitle = "Consumo salvo"
+        static let saveConsumptionSuccessMessage = "Registro do momento salvo com data, hora, quantidade e calorias."
+        static let historyTitle = "Histórico de Registros"
+        static let historyEmptyState = "Nenhum registro salvo ainda."
+        static let historySushiLabel = "Sushis"
+        static let historyCaloriesLabel = "Calorias"
     }
 }

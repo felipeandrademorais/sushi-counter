@@ -6,7 +6,9 @@ struct ContentView: View {
     @Query(sort: \SushiItem.createdAt, order: .reverse) private var items: [SushiItem]
 
     @State private var showingAddSheet = false
+    @State private var showingHistorySheet = false
     @State private var itemToDelete: SushiItem?
+    @State private var showSaveSuccessAlert = false
     @AppStorage("totalDeletionsCount") private var totalDeletionsCount = 0
 
     private let haptic = UIImpactFeedbackGenerator(style: .medium)
@@ -48,7 +50,20 @@ struct ContentView: View {
                 .presentationDetents([.height(570), .large])
                 .presentationBackground(Color(hex: AppConstants.Colors.background))
         }
+        .sheet(isPresented: $showingHistorySheet) {
+            HistoryView()
+                .presentationDetents([.medium, .large])
+                .presentationBackground(Color(hex: AppConstants.Colors.background))
+        }
         .navigationBarHidden(true)
+        .alert(
+            AppConstants.Messages.saveConsumptionSuccessTitle,
+            isPresented: $showSaveSuccessAlert
+        ) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(AppConstants.Messages.saveConsumptionSuccessMessage)
+        }
         .onAppear {
             SushiDataService.seedInitialData(context: modelContext)
         }
@@ -59,6 +74,8 @@ struct ContentView: View {
     private var headerSection: some View {
         HeaderView(
             onReset: resetAll,
+            onHistory: { showingHistorySheet = true },
+            onSave: saveDailyConsumption,
             onAdd: { showingAddSheet = true }
         )
     }
@@ -129,9 +146,19 @@ struct ContentView: View {
             notificationHaptic.notificationOccurred(.success)
         }
     }
+    
+    private func saveDailyConsumption() {
+        SushiDataService.saveDailyConsumption(
+            totalSushis: totalConsumido,
+            totalCalorias: totalCalorias,
+            context: modelContext
+        )
+        showSaveSuccessAlert = true
+        notificationHaptic.notificationOccurred(.success)
+    }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: SushiItem.self, inMemory: true)
+        .modelContainer(for: [SushiItem.self, DailyConsumptionLog.self], inMemory: true)
 }

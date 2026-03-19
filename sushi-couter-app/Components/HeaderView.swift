@@ -2,6 +2,8 @@ import SwiftUI
 
 struct HeaderView: View {
     let onReset: () -> Void
+    let onHistory: () -> Void
+    let onSave: () -> Void
     let onAdd: () -> Void
 
     var body: some View {
@@ -26,6 +28,22 @@ struct HeaderView: View {
                     background: .white,
                     showStroke: true,
                     action: onReset
+                )
+
+                HeaderButton(
+                    icon: AppConstants.Icons.history,
+                    foreground: .black,
+                    background: .white,
+                    showStroke: true,
+                    action: onHistory
+                )
+                
+                HeaderButton(
+                    icon: AppConstants.Icons.save,
+                    foreground: .black,
+                    background: .white,
+                    showStroke: true,
+                    action: onSave
                 )
 
                 HeaderButton(
@@ -78,6 +96,6 @@ private struct HeaderButton: View {
 }
 
 #Preview {
-    HeaderView(onReset: {}, onAdd: {})
+    HeaderView(onReset: {}, onHistory: {}, onSave: {}, onAdd: {})
         .background(Color(hex: AppConstants.Colors.background))
 }

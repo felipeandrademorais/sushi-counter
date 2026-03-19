@@ -7,6 +7,6 @@ struct sushi_couter_appApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: SushiItem.self)
+        .modelContainer(for: [SushiItem.self, DailyConsumptionLog.self])
     }
 }

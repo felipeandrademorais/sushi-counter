@@ -85,4 +85,14 @@ enum SushiDataService {
         UserDefaults.standard.set(false, forKey: seedKey)
         seedInitialData(context: context)
     }
+    
+    static func saveDailyConsumption(totalSushis: Int, totalCalorias: Int, context: ModelContext) {
+        let log = DailyConsumptionLog(
+            createdAt: .now,
+            totalSushis: totalSushis,
+            totalCalorias: totalCalorias
+        )
+        context.insert(log)
+        try? context.save()
+    }
 }
